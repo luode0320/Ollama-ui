@@ -5,6 +5,7 @@ import { CodeBlock, dracula, github } from "react-code-blocks";
 import { Button } from "./ui/button";
 import { toast } from "sonner";
 import { useTheme } from "next-themes";
+import {px} from "framer-motion";
 
 interface ButtonCodeblockProps {
   code: string;
@@ -25,7 +26,7 @@ export default function CodeDisplayBlock({ code, lang }: ButtonCodeblockProps) {
   };
 
   return (
-    <div className="relative my-4 overflow-scroll overflow-x-scroll  flex flex-col   text-start  ">
+    <div className="relative my-4 overflow-scroll overflow-x-scroll  flex flex-col text-start">
       <Button
         onClick={copyToClipboard}
         variant="ghost"
@@ -40,14 +41,14 @@ export default function CodeDisplayBlock({ code, lang }: ButtonCodeblockProps) {
       </Button>
       <CodeBlock
         customStyle={
-          theme === "dark"
-            ? { background: "#303033" }
-            : { background: "#fcfcfc" }
+           theme === "dark"?
+               { background: "#303033",fontSize: "12px","border-radius": "10px" }:
+               { background: "#303033" ,fontSize: "12px","border-radius": "10px"}
         }
         text={code}
         language="tsx"
         showLineNumbers={false}
-        theme={theme === "dark" ? dracula : github}
+        theme={theme === "dark" ? dracula : dracula}
       />
     </div>
   );

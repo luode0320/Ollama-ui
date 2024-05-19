@@ -3,7 +3,7 @@
 </div>
 
 <h1 align="center">
-  Fully-featured & beautiful web interface for Ollama LLMs
+  Ollama LLMs功能齐全且美观的Web界面
 </h1>
 
 <div align="center">
@@ -13,108 +13,85 @@
 </div>
 
 
-Get up and running with Large Language Models **quickly**, **locally** and even **offline**.
-This project aims to be the easiest way for you to get started with LLMs. No tedious and annoying setup required!
+启动并运行大型语言模型 **迅速**, **本地** 甚至 **离线**.
+这个项目旨在成为你开始使用LLM的最简单方法。 不需要繁琐和烦人的设置！
 
 # Features ✨
 
-- **Beautiful & intuitive UI:** Inspired by ChatGPT, to enhance similarity in the user experience.
-- **Fully local:** Stores chats in localstorage for convenience. No need to run a database.
-- **Fully responsive:** Use your phone to chat, with the same ease as on desktop.
-- **Easy setup:** No tedious and annoying setup required. Just clone the repo and you're good to go!
-- **Code syntax highligting:** Messages that include code, will be highlighted for easy access.
-- **Copy codeblocks easily:** Easily copy the highlighted code with one click.
-- **Download/Pull & Delete models:** Easily download and delete models directly from the interface.
-- **Switch between models:** Switch between models fast with a click.
-- **Chat history:** Chats are saved and easily accessed.
-- **Light & Dark mode:** Switch between light & dark mode.
+- **美观直观的用户界面：** 受ChatGPT启发，增强用户体验的相似性。
+- **完全本地化：** 为方便起见，将聊天存储在本地存储中。无需运行数据库。
+- **完全响应：** 使用手机聊天，与在桌面上一样轻松。
+- **设置简单：** 无需繁琐烦人的设置。只需克隆存储库，您就可以开始了！
+- **代码语法高亮：** 包含代码的消息将被高亮显示，以便于访问。
+- **轻松复制代码块：** 一键轻松复制突出显示的代码。
+- **下载/拉取和删除模型：** 直接从界面轻松下载和删除模型。
+- **在型号之间切换：** 只需单击一下即可在型号之间快速切换。
+- **聊天记录：** 聊天记录已保存并易于访问。
+- **明暗模式：** 在明暗模式之间切换。
 
-# Preview
+# 预览
 
 https://github.com/jakobhoeg/nextjs-ollama-llm-ui/assets/114422072/08eaed4f-9deb-4e1b-b87a-ba17d81b9a02
 
-# Requisites ⚙️
+# 先决条件 ⚙️
 
-To use the web interface, these requisites must be met:
+要使用 Web 界面，必须满足以下要求：
 
-1. Download [Ollama](https://ollama.com/download) and have it running. Or run it in a Docker container. Check the [docs](https://github.com/ollama/ollama) for instructions.
-2. Node.js (18+) and npm is required. [Download](https://nodejs.org/en/download)
+1. 下载 [Ollama](https://ollama.com/download) 并让它运行。或者在 Docker 容器中运行它. 选中 [docs](https://github.com/ollama/ollama) 有关说明.
+2. Node.js (18+) and npm 是必需的. [Download](https://nodejs.org/en/download)
 
-# Deploy your own to Vercel or Netlify in one click ✨
+# 安装以在本地运行 📖
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fjakobhoeg%2Fnextjs-ollama-llm-ui&env=NEXT_PUBLIC_OLLAMA_URL&envDescription=Your%20Ollama%20URL) [![Deploy to Netlify Button](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/jakobhoeg/nextjs-ollama-llm-ui)
+要安装和运行 Web 界面的本地环境，请按照以下说明操作.
 
-You'll need to set your [OLLAMA_ORIGINS](https://github.com/ollama/ollama/blob/main/docs/faq.md) environment variable on your machine that is running Ollama:
 
-```
-OLLAMA_ORIGINS="https://your-app.vercel.app/"
-```
-
-# Installation to run locally 📖
-
-To install and run a local environment of the web interface, follow the instructions below.
-
-**1. Clone the repository to a directory on your pc via command prompt:**
-
-```
-git clone https://github.com/jakobhoeg/nextjs-ollama-llm-ui
-```
-
-**2. Open the folder:**
-
-```
-cd nextjs-ollama-llm-ui
-```
-
-**3. Rename the `.example.env` to `.env`:**
+**1. 重命名 `.example.env` to `.env`:**
 
 ```
 mv .example.env .env
 ```
 
-**4. If your instance of Ollama is NOT running on the default ip-address and port, change the variable in the .env file to fit your usecase:**
+**2. 如果您的 Ollama 实例未在默认 IP 地址和端口上运行，请更改 .env 文件中的变量以适合您的用例:**
 
 ```
 NEXT_PUBLIC_OLLAMA_URL="http://localhost:11434"
 ```
 
-**5. Install dependencies:**
+**3. 安装依赖项:**
 
 ```
 npm install
 ```
 
-**6. Start the development server:**
+**4. 启动开发服务器:**
 
 ```
+npm run build
 npm run dev
 ```
 
-**5. Go to [localhost:3000](http://localhost:3000) and start chatting with your favourite model!**
+**5. 转到 [localhost:3000](http://localhost:3000) 并开始与您最喜欢的模特聊天!**
 
-# Upcoming features
+# 即将推出的功能
 
-This is a to-do list consisting of upcoming features.
-- ⬜️ Ability to send an image in the prompt to utilize vision language models.
-- ⬜️ Ability to regenerate responses
-- ⬜️ Import and export chats
-- ⬜️ Voice input support
-- ✅ Code syntax highlighting
+这是一个待办事项列表，包含即将推出的功能。
+- ⬜️ 能够在提示中发送图像以利用视觉语言模型。
+- ⬜️ 能够重新生成响应
+- ⬜️ 导入和导出聊天
+- ⬜️ 语音输入支持
+- ✅ 代码语法高亮显示
 
-# Tech stack
+# 技术栈
 
-[NextJS](https://nextjs.org/) - React Framework for the Web
+[NextJS](https://nextjs.org/) - 适用于 Web 的 React 框架
 
-[TailwindCSS](https://tailwindcss.com/) - Utility-first CSS framework
+[TailwindCSS](https://tailwindcss.com/) - 实用程序优先的 CSS 框架
 
-[shadcn-ui](https://ui.shadcn.com/) - UI component built using Radix UI and Tailwind CSS
+[shadcn-ui](https://ui.shadcn.com/) - 使用 Radix UI 和 Tailwind CSS 构建的 UI 组件
 
-[shadcn-chat](https://github.com/jakobhoeg/shadcn-chat) - Chat components for NextJS/React projects
+[shadcn-chat](https://github.com/jakobhoeg/shadcn-chat) - NextJS/React 项目的聊天组件
 
-[Framer Motion](https://www.framer.com/motion/) - Motion/animation library for React
+[Framer Motion](https://www.framer.com/motion/) - React 的运动/动画库
 
-[Lucide Icons](https://lucide.dev/) - Icon library
+[Lucide Icons](https://lucide.dev/) - 图标库
 
-# Helpful links
-
-[Medium Article](https://medium.com/@bartek.lewicz/launch-your-own-chatgpt-clone-for-free-on-colab-shareable-and-online-in-less-than-10-minutes-da19e44be5eb) - How to launch your own ChatGPT clone for free on Google Colab. By Bartek Lewicz.

@@ -19,10 +19,11 @@ import { useRouter } from "next/navigation";
 
 const formSchema = z.object({
   name: z.string().min(1, {
-    message: "Please select a model to pull",
+    message: "请选择要拉动的型号",
   }),
 });
 
+// 这个是拉取模型的组件
 export default function PullModelForm() {
   const [isDownloading, setIsDownloading] = useState(false);
   const [name, setName] = useState("");
@@ -38,9 +39,9 @@ export default function PullModelForm() {
     data.name = data.name.trim();
 
     setIsDownloading(true);
-    // Send the model name to the server
+    // 将模型名称发送到服务器
     if (env === "production") {
-      // Make a post request to localhost
+      // 向 localhost 发出发布请求
       const pullModel = async () => {
         const response = await fetch(process.env.NEXT_PUBLIC_OLLAMA_URL + "/api/pull", {
           method: "POST",
@@ -55,7 +56,7 @@ export default function PullModelForm() {
           setIsDownloading(false);
           return;
         } else if (json.status === "success") {
-          toast.success("Model pulled successfully");
+          toast.success("模型拉拔成功");
           setIsDownloading(false);
           return;
         }
@@ -72,15 +73,15 @@ export default function PullModelForm() {
         .then((response) => {
           // Check if response is successful
           if (!response.ok) {
-            throw new Error("Network response was not ok");
+            throw new Error("网络响应不正常");
           }
           if (!response.body) {
-            throw new Error("Something went wrong");
+            throw new Error("出了点问题");
           }
-          // Create a new ReadableStream from the response body
+          // 从响应正文创建新的 ReadableStream
           const reader = response.body.getReader();
   
-          // Read the data in chunks
+          // 以块为单位读取数据
           reader.read().then(function processText({ done, value }) {
             if (done) {
               setIsDownloading(false);
@@ -144,20 +145,19 @@ export default function PullModelForm() {
               <Input
                 {...field}
                 type="text"
-                placeholder="llama2"
+                placeholder="qwen:4b"
                 value={name}
                 onChange={(e) => handleChange(e)}
               />
               <p className="text-xs pt-1">
-                Check the{" "}
+                模型仓库{" "}
                 <a
                   href="https://ollama.com/library"
                   target="_blank"
                   className="text-blue-500 underline"
                 >
-                  library
                 </a>{" "}
-                for a list of available models.
+                有关可用型号的列表.
               </p>
               <FormMessage />
             </FormItem>
@@ -168,16 +168,16 @@ export default function PullModelForm() {
             {isDownloading ? (
               <div className="flex items-center gap-2">
                 <Loader2Icon className="animate-spin w-4 h-4" />
-                <span>Pulling model...</span>
+                <span>拉取模型...</span>
               </div>
             ) : (
-              "Pull model"
+              "拉取模型"
             )}
           </Button>
           <p className="text-xs text-center">
             {isDownloading
-              ? "This may take a while. You can safely close this modal and continue using the app"
-              : "Pressing the button will download the specified model to your device."}
+              ? "这可能需要一段时间. 您可以安全地关闭此模式并继续使用该应用程序"
+              : "按下按钮会将指定型号下载到您的设备."}
           </p>
         </div>
       </form>

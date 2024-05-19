@@ -40,7 +40,7 @@ export default function Home() {
     },
     onError: (error) => {
       setLoadingSubmit(false);
-      toast.error("An error occurred. Please try again.");
+      toast.error("出现错误. 请再试一次.");
     },
   });
   const [chatId, setChatId] = React.useState<string>("");
@@ -65,7 +65,7 @@ export default function Home() {
   useEffect(() => {
     if (env === "production") {
       const newOllama = new ChatOllama({
-        baseUrl: process.env.NEXT_PUBLIC_OLLAMA_URL || "http://localhost:11434",
+        baseUrl: process.env.NEXT_PUBLIC_OLLAMA_URL,
         model: selectedModel,
       });
       setOllama(newOllama);
@@ -118,7 +118,7 @@ export default function Home() {
         ]);
         setLoadingSubmit(false);
       } catch (error) {
-        toast.error("An error occurred. Please try again.");
+        toast.error("出现错误. 请再试一次.");
         setLoadingSubmit(false);
       }
     }
@@ -174,10 +174,9 @@ export default function Home() {
         />
         <DialogContent className="flex flex-col space-y-4">
           <DialogHeader className="space-y-2">
-            <DialogTitle>Welcome to Ollama!</DialogTitle>
+            <DialogTitle>欢迎来到聊天室!</DialogTitle>
             <DialogDescription>
-              Enter your name to get started. This is just to personalize your
-              experience.
+              输入您的姓名以开始使用. 这只是为了有存在感.
             </DialogDescription>
             <UsernameForm setOpen={setOpen} />
           </DialogHeader>

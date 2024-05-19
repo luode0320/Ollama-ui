@@ -1,7 +1,63 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
- 
+
+/*#####################################################*/
+
+.sidebarbg {
+  background-color: #e7f8ff !important;
+}
+
+.user-serringsbg {
+  cursor: pointer;
+  background-color: hsl(186.32deg 48.72% 84.71%) !important;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.sidebarabg {
+  background-color: #fff !important;
+  margin-bottom: 10px;
+}
+
+.bg-accent\/90 {
+  border:2px solid #1d93ab;
+}
+
+.bg-shixian{
+  border:2px solid #e7e7e7;
+}
+.bg-max-kd{
+  max-width: 70rem !important;
+  font-size: 14px;
+}
+.bg-max-jiange{
+  line-height: 1.5;
+}
+
+.bg-max-daixao{
+  width: 1.5rem;
+}
+.bg-shixian-top{
+  border-bottom: 1px solid #dfdfdf;
+}
+
+.sidebarbig {
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.sidebartx {
+  line-height: 2rem !important;
+}
+
+.sidebar-tou-bg:hover {
+  background-color: #fff !important;
+}
+
+/*#####################################################*/
 
 @layer base {
   :root {

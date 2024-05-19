@@ -21,7 +21,7 @@ import { toast } from "sonner"
 
 const formSchema = z.object({
   username: z.string().min(2, {
-    message: "Name must be at least 2 characters.",
+    message: "名称必须至少为 2 个字符.",
   }),
 });
 
@@ -46,7 +46,7 @@ export default function EditUsernameForm({ setOpen }: EditUsernameFormProps) {
   function onSubmit(values: z.infer<typeof formSchema>) {
     localStorage.setItem("ollama_user", values.username);
     window.dispatchEvent(new Event("storage"));
-    toast.success("Name updated successfully");
+    toast.success("名称已成功更新");
   }
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -58,7 +58,7 @@ export default function EditUsernameForm({ setOpen }: EditUsernameFormProps) {
   return (
     <Form {...form}>
        <div className="w-full flex flex-col gap-4 pt-8">
-       <FormLabel>Theme</FormLabel>
+       <FormLabel>主题</FormLabel>
         <ModeToggle />
        </div>
       <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
@@ -67,7 +67,7 @@ export default function EditUsernameForm({ setOpen }: EditUsernameFormProps) {
           name="username"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Name</FormLabel>
+              <FormLabel>名字</FormLabel>
               <FormControl>
                 <div className="md:flex gap-4">
                   <Input
@@ -77,7 +77,7 @@ export default function EditUsernameForm({ setOpen }: EditUsernameFormProps) {
                     onChange={(e) => handleChange(e)}
                   />
                   <Button type="submit">
-                    Change name
+                    更改名称
                   </Button>
                 </div>
               </FormControl>

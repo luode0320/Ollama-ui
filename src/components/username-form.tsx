@@ -18,7 +18,7 @@ import React from "react"
  
 const formSchema = z.object({
     username: z.string().min(2, {
-        message: "Name must be at least 2 characters.",
+        message: "名称必须至少为 2 个字符.",
       }),
 })
 
@@ -49,18 +49,17 @@ export default function UsernameForm({ setOpen }: UsernameFormProps) {
           name="username"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Name</FormLabel>
+              <FormLabel>名字</FormLabel>
               <FormControl>
-                <Input placeholder="Enter your name" {...field} />
+                <Input placeholder="输入您的姓名" {...field} />
               </FormControl>
               <FormDescription>
-                This won&apos;t be public. It&apos;s just for you.
               </FormDescription>
               <FormMessage />
             </FormItem>
           )}
         />
-        <Button className="w-full" type="submit">Submit</Button>
+        <Button className="w-full" type="submit">开始</Button>
       </form>
     </Form>
   )

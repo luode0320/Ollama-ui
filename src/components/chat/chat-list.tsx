@@ -95,7 +95,7 @@ export default function ChatList({
               className="h-20 w-14 object-contain dark:invert"
             />
             <p className="text-center text-lg text-muted-foreground">
-              How can I help you today?
+              我能帮你什么?
             </p>
           </div>
 
@@ -164,12 +164,33 @@ export default function ChatList({
             <div className="flex gap-3 items-center">
               {message.role === "user" && (
                 <div className="flex items-end gap-3">
-                  <span className="bg-accent p-3 rounded-md max-w-xs sm:max-w-2xl overflow-x-auto">
-                    {message.content}
+                  <span className="bg-accent p-3 rounded-md max-w-xs sm:max-w-2xl bg-shixian bg-max-kd bg-max-jiange">
+                    {/* 检查消息内容是否包含代码块 */}
+                    {message.content.split("```").map((part, index) => {
+                      if (index % 2 === 0) {
+                        return (
+                            <Markdown key={index} remarkPlugins={[remarkGfm]}>
+                              {part}
+                            </Markdown>
+                        );
+                      } else {
+                        return (
+                            <pre className="whitespace-pre-wrap" key={index}>
+                            <CodeDisplayBlock code={part} lang="" />
+                          </pre>
+                        );
+                      }
+                    })}
+                    {isLoading &&
+                        messages.indexOf(message) === messages.length - 1 && (
+                            <span className="animate-pulse" aria-label="Typing">
+                          ...
+                        </span>
+                        )}
                   </span>
                   <Avatar className="flex justify-start items-center overflow-hidden">
                     <AvatarImage
-                      src="/"
+                      src="/月亮.png"
                       alt="user"
                       width={6}
                       height={6}
@@ -185,15 +206,15 @@ export default function ChatList({
                 <div className="flex items-end gap-2">
                   <Avatar className="flex justify-start items-center">
                     <AvatarImage
-                      src="/ollama.png"
+                      src="/太阳.png"
                       alt="AI"
                       width={6}
                       height={6}
                       className="object-contain dark:invert"
                     />
                   </Avatar>
-                  <span className="bg-accent p-3 rounded-md max-w-xs sm:max-w-2xl overflow-x-auto">
-                    {/* Check if the message content contains a code block */}
+                  <span className="bg-accent p-3 rounded-md max-w-xs sm:max-w-2xl bg-shixian bg-max-kd bg-max-jiange">
+                    {/* 检查消息内容是否包含代码块 */}
                     {message.content.split("```").map((part, index) => {
                       if (index % 2 === 0) {
                         return (

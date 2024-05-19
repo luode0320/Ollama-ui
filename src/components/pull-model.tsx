@@ -19,6 +19,7 @@ import {
 import { DownloadIcon } from "@radix-ui/react-icons";
 import PullModelForm from "./pull-model-form";
 
+// 这个是拉取模型的组件
 export default function PullModel() {
 
   return (
@@ -26,11 +27,11 @@ export default function PullModel() {
       <DialogTrigger asChild>
         <div className="flex w-full gap-2 p-1 items-center cursor-pointer">
           <DownloadIcon className="w-4 h-4" />
-          <p>Pull model</p>
+          <p>拉取模型</p>
         </div>
       </DialogTrigger>
       <DialogContent className="space-y-2">
-      <DialogTitle>Pull Model</DialogTitle>
+      <DialogTitle>拉取模型</DialogTitle>
           <PullModelForm />
       </DialogContent>
     </Dialog>

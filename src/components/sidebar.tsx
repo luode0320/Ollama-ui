@@ -5,14 +5,10 @@ import { MoreHorizontal, SquarePen, Trash2 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Button, buttonVariants } from "@/components/ui/button";
 import { Message } from "ai/react";
-import Image from "next/image";
 import { useEffect, useState } from "react";
 import SidebarSkeleton from "./sidebar-skeleton";
-import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar";
 import UserSettings from "./user-settings";
 import { useLocalStorageData } from "@/app/hooks/useLocalStorageData";
-import { ScrollArea, Scrollbar } from "@radix-ui/react-scroll-area";
-import PullModel from "./pull-model";
 import {
   Dialog,
   DialogContent,
@@ -26,7 +22,6 @@ import {
   DropdownMenuContent,
   DropdownMenuTrigger,
 } from "./ui/dropdown-menu";
-import { TrashIcon } from "@radix-ui/react-icons";
 import { useRouter } from "next/navigation";
 
 interface SidebarProps {
@@ -57,6 +52,7 @@ export function Sidebar({
     if (chatId) {
       setSselectedChatId(chatId);
     }
+    console.log("Sidebar:"+chatId)
 
     setLocalChats(getLocalstorageChats());
     const handleStorageChange = () => {
@@ -107,7 +103,7 @@ export function Sidebar({
   return (
     <div
       data-collapsed={isCollapsed}
-      className="relative justify-between group lg:bg-accent/20 lg:dark:bg-card/35 flex flex-col h-full gap-4 p-2 data-[collapsed=true]:p-2 "
+      className="relative justify-between group lg:bg-accent/20 lg:dark:bg-card/35 flex flex-col h-full gap-4 p-2 data-[collapsed=true]:p-2 sidebarbg"
     >
       <div className=" flex flex-col justify-between p-2 max-h-fit overflow-y-auto">
         <Button
@@ -117,25 +113,15 @@ export function Sidebar({
             setMessages([]);
           }}
           variant="ghost"
-          className="flex justify-between w-full h-14 text-sm xl:text-lg font-normal items-center "
+          className="flex justify-between w-full h-14 text-sm xl:text-lg font-normal items-center sidebar-tou-bg"
         >
-          <div className="flex gap-3 items-center ">
-            {!isCollapsed && !isMobile && (
-              <Image
-                src="/ollama.png"
-                alt="AI"
-                width={28}
-                height={28}
-                className="dark:invert hidden 2xl:block"
-              />
-            )}
-            New chat
+          <div className="flex gap-3 items-center sidebarbig">
+            <p>聊天室</p>
           </div>
-          <SquarePen size={18} className="shrink-0 w-4 h-4" />
         </Button>
 
         <div className="flex flex-col pt-10 gap-2">
-          <p className="pl-4 text-xs text-muted-foreground">Your chats</p>
+          <p className="pl-4 text-xs text-muted-foreground">聊天记录</p>
           {localChats.length > 0 && (
             <div>
               {localChats.map(({ chatId, messages }, index) => (
@@ -149,12 +135,12 @@ export function Sidebar({
                       [buttonVariants({ variant: "ghost" })]:
                         chatId.substring(5) !== selectedChatId,
                     },
-                    "flex justify-between w-full h-14 text-base font-normal items-center "
+                    "flex justify-between w-full h-14 text-base font-normal items-center sidebarabg"
                   )}
                 >
                   <div className="flex gap-3 items-center truncate">
                     <div className="flex flex-col">
-                      <span className="text-xs font-normal ">
+                      <span className="text-xs font-normal sidebartx">
                         {messages.length > 0 ? messages[0].content : ""}
                       </span>
                     </div>
@@ -178,23 +164,22 @@ export function Sidebar({
                             onClick={(e) => e.stopPropagation()}
                           >
                             <Trash2 className="shrink-0 w-4 h-4" />
-                            Delete chat
+                            删除聊天
                           </Button>
                         </DialogTrigger>
                         <DialogContent>
                           <DialogHeader className="space-y-4">
-                            <DialogTitle>Delete chat?</DialogTitle>
+                            <DialogTitle>删除聊天?</DialogTitle>
                             <DialogDescription>
-                              Are you sure you want to delete this chat? This
-                              action cannot be undone.
+                              您确定要删除此聊天记录吗？这操作无法撤消。
                             </DialogDescription>
                             <div className="flex justify-end gap-2">
-                              <Button variant="outline">Cancel</Button>
+                              <Button variant="outline">取消</Button>
                               <Button
                                 variant="destructive"
                                 onClick={() => handleDeleteChat(chatId)}
                               >
-                                Delete
+                                删除
                               </Button>
                             </div>
                           </DialogHeader>
@@ -210,8 +195,8 @@ export function Sidebar({
         </div>
       </div>
 
-      <div className="justify-end px-2 py-2 w-full border-t">
-        <UserSettings />
+      <div className="justify-end px-2 py-2 w-full">
+        {/*<UserSettings />*/}
       </div>
     </div>
   );

@@ -7,9 +7,10 @@ import { AIMessage, HumanMessage } from "@langchain/core/messages";
 import { BytesOutputParser } from "@langchain/core/output_parsers";
 import { ChatRequestOptions } from "ai";
 import { Message, useChat } from "ai/react";
-import React, { useEffect } from "react";
+import React, {useEffect, useRef} from "react";
 import { toast } from "sonner";
 import { v4 as uuidv4 } from "uuid";
+import { ref } from 'vue';
 
 export default function Page({ params }: { params: { id: string } }) {
   const {
@@ -30,7 +31,7 @@ export default function Page({ params }: { params: { id: string } }) {
     },
     onError: (error) => {
       setLoadingSubmit(false);
-      toast.error("An error occurred. Please try again.");
+      toast.error("出现错误. 请再试一次.");
     },
   });
   const [chatId, setChatId] = React.useState<string>("");
@@ -40,11 +41,12 @@ export default function Page({ params }: { params: { id: string } }) {
   const [ollama, setOllama] = React.useState<ChatOllama>();
   const env = process.env.NODE_ENV;
   const [loadingSubmit, setLoadingSubmit] = React.useState(false);
+  const formRef = useRef<HTMLFormElement>(null);
 
   useEffect(() => {
     if (env === "production") {
       const newOllama = new ChatOllama({
-        baseUrl: process.env.NEXT_PUBLIC_OLLAMA_URL || "http://localhost:11434",
+        baseUrl: process.env.NEXT_PUBLIC_OLLAMA_URL,
         model: selectedModel,
       });
       setOllama(newOllama);
@@ -102,7 +104,7 @@ export default function Page({ params }: { params: { id: string } }) {
         ]);
         setLoadingSubmit(false);
       } catch (error) {
-        toast.error("An error occurred. Please try again.");
+        toast.error("出现错误. 请再试一次.");
         setLoadingSubmit(false);
       }
     }
@@ -156,6 +158,8 @@ export default function Page({ params }: { params: { id: string } }) {
         stop={stop}
         navCollapsedSize={10}
         defaultLayout={[30, 160]}
+        formRef={formRef}
+        setMessages={setMessages}
       />
     </main>
   );

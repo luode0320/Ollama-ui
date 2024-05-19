@@ -39,6 +39,12 @@ export default function ChatTopbar({
   const [currentModel, setCurrentModel] = React.useState<string | null>(null);
 
   useEffect(() => {
+    const chats = Object.keys(localStorage).filter((key) =>
+        key.startsWith("chat_")
+    );
+    if (chats.length > 0) {
+      chatId=chats[0]
+    }
     setCurrentModel(getSelectedModel());
 
     const env = process.env.NODE_ENV;
@@ -70,16 +76,16 @@ export default function ChatTopbar({
   };
 
   return (
-    <div className="w-full flex px-4 py-6  items-center justify-between lg:justify-center ">
+    <div className="w-full flex px-4 py-6  items-center justify-between lg:justify-center bg-shixian-top">
       <Sheet>
         <SheetTrigger>
           <HamburgerMenuIcon className="lg:hidden w-5 h-5" />
         </SheetTrigger>
         <SheetContent side="left">
           <Sidebar
-            chatId={chatId || ""}
             isCollapsed={false}
             isMobile={false}
+            chatId={chatId || ""}
             messages={messages}
           />
         </SheetContent>
@@ -114,7 +120,7 @@ export default function ChatTopbar({
             ))
           ) : (
             <Button variant="ghost" disabled className=" w-full">
-              No models available
+              没有可用的型号
             </Button>
           )}
         </PopoverContent>
