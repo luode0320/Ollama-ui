@@ -72,26 +72,4 @@ npm run dev
 
 **5. 转到 [localhost:3000](http://localhost:3000) 并开始与您最喜欢的模特聊天!**
 
-# 即将推出的功能
-
-这是一个待办事项列表，包含即将推出的功能。
-- ⬜️ 能够在提示中发送图像以利用视觉语言模型。
-- ⬜️ 能够重新生成响应
-- ⬜️ 导入和导出聊天
-- ⬜️ 语音输入支持
-- ✅ 代码语法高亮显示
-
-# 技术栈
-
-[NextJS](https://nextjs.org/) - 适用于 Web 的 React 框架
-
-[TailwindCSS](https://tailwindcss.com/) - 实用程序优先的 CSS 框架
-
-[shadcn-ui](https://ui.shadcn.com/) - 使用 Radix UI 和 Tailwind CSS 构建的 UI 组件
-
-[shadcn-chat](https://github.com/jakobhoeg/shadcn-chat) - NextJS/React 项目的聊天组件
-
-[Framer Motion](https://www.framer.com/motion/) - React 的运动/动画库
-
-[Lucide Icons](https://lucide.dev/) - 图标库
 
