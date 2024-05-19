@@ -7,6 +7,12 @@
 
 name: CI/CD
 on:
+  workflow_dispatch:
+    inputs:
+      name:
+        description: 'Person to greet'
+        required: true
+        default: 'World'
   push:
     branches:
       - main # 触发条件为 push main分支
