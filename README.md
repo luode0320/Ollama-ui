@@ -1,7 +1,3 @@
-<div align="center">
-  <img src="ollama-nextjs-ui.gif">
-</div>
-
 <h1 align="center">
   Ollama LLMs功能齐全且美观的Web界面
 </h1>
