@@ -2,7 +2,7 @@
 # 如果手动执行此dockerfile, 注意将不必要的文件夹删除, 例如.idea, .github, 依赖等
 
 # 使用一个基础的Node.js镜像
-FROM node:18-alpine
+FROM node:21-alpine
 
 # 复制当前目录所有文件到 /aap下面
 COPY . /app

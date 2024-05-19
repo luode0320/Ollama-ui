@@ -15,7 +15,7 @@ on:
         default: 'World'
   push:
     branches:
-      - main # 触发条件为 push main分支
+      - master # 触发条件为 push main分支
 # 任务
 jobs:
   docker: # 描述词, 无实际意义
