@@ -29,10 +29,6 @@
 - **聊天记录：** 聊天记录已保存并易于访问。
 - **明暗模式：** 在明暗模式之间切换。
 
-# 预览
-
-https://github.com/jakobhoeg/nextjs-ollama-llm-ui/assets/114422072/08eaed4f-9deb-4e1b-b87a-ba17d81b9a02
-
 # 先决条件 ⚙️
 
 要使用 Web 界面，必须满足以下要求：
