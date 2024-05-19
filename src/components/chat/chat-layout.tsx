@@ -43,12 +43,12 @@ export function ChatLayout({
   const [isCollapsed, setIsCollapsed] = React.useState(defaultCollapsed);
   const [isMobile, setIsMobile] = useState(false);
 
-  const chats = Object.keys(localStorage).filter((key) =>
-      key.startsWith("chat_")
-  );
-  if (chats.length > 0) {
-    chatId=chats[0]
-  }
+  // const chats = Object.keys(localStorage).filter((key) =>
+  //     key.startsWith("chat_")
+  // );
+  // if (chats.length > 0) {
+  //   chatId=chats[0]
+  // }
 
   useEffect(() => {
     const checkScreenWidth = () => {
