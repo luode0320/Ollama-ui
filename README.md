@@ -42,7 +42,7 @@ https://github.com/jakobhoeg/nextjs-ollama-llm-ui/assets/114422072/08eaed4f-9deb
 
 # 安装以在本地运行 📖
 
-**1. 重命名 `.example.env` to `.env`:**
+**1. 重命名 `.example.env` to `.env`:** 
 
 ```
 mv .example.env .env
