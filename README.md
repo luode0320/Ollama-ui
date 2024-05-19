@@ -56,7 +56,7 @@ NEXT_PUBLIC_OLLAMA_URL="http://localhost:11434"
 npm install
 ```
 
-**4. 启动开发服务器:**
+**4. 启动:**
 
 ```
 npm run build
