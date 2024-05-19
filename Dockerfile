@@ -15,4 +15,6 @@ RUN npm install
 # 打包
 RUN npm run build
 
-CMD ["sh", "-c", "npm run start"]
+ENV NEXT_PUBLIC_OLLAMA_URL="http://0.0.0.0:11434"
+
+CMD ["sh", "-c", "npm run dev"]
